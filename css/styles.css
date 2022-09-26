@@ -561,6 +561,7 @@ footer .container div nav ul li a:hover {
 }
 cite {
     font-size: 14px;
+    margin-top: 15px;
 }
 cite a:link {
     color: #f9c136;
@@ -580,18 +581,8 @@ footer .container small {
     text-align: center;
 }
 
-/* Media Query #1 - Mobile
-======================================================
-*/
-@media screen and (min-width: 582px) {
-    
-    /* footer */
-    cite {
-        margin-top: 15px;
-    }
-}
 
-/* Media Query #2 - Tablet
+/* Media Query - Tablet
 ======================================================
 */
 @media screen and (min-width: 800px) {
@@ -650,13 +641,9 @@ footer .container small {
     #ingredients button {
         font-size: 18px;
     }
-    /* footer */
-    cite {
-        margin-top: 15px;
-    }
 }
 
-/* Media Query #3 - Desktop
+/* Media Query - Desktop
 ======================================================
 */
 @media screen and (min-width: 1720px) {
@@ -688,9 +675,5 @@ footer .container small {
     /* Nutrition Facts */
     details {
         min-height: 616px;
-    }
-    /* footer */
-    cite {
-        margin-top: 15px;
     }
 }
