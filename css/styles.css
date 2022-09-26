@@ -1,0 +1,696 @@
+@charset "UTF-8";
+/*
+Styles specific to faux recipe website - Just a Dash
+Author: Nicole Peterson
+Last Updated: 12/2/21
+
+COLOR PALETTE:
+https://coolors.co/f5f5f5-222222-660099-f9c136
+#f5f5f5 - Off White
+#222222 - Dark Grey (text)
+#660099 - Purple
+##f9c136 - Orange Yellow
+
+TYPOGRAPHY:
+h1
+font-family: dolce, sans-serif;
+font-weight: 900;
+font-style: normal;
+
+h2, h3, h4, h5, h6
+font-family: komet, sans-serif;
+font-weight: 800;
+font-style: normal;
+
+body
+font-family: forma-djr-micro, sans-serif;
+font-weight: 300;
+font-style: normal;
+*/
+
+/* CSS Reset
+======================================================
+	http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers
+======================================================
+*/
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Global Styles
+======================================================
+*/
+html {
+    box-sizing: border-box;
+	min-height: 100vh;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+	font: normal 300 17px/1.5 forma-djr-micro, sans-serif;
+	background: #f5f5f5;
+	color: #222222;
+	letter-spacing: 0.5px;
+}
+body, #wrapper, main {
+	min-height: 100vh;
+	height: 100%;
+}
+#wrapper {
+	max-width: 1440px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 30px 0;
+	flex: 1;
+}
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    background-color: #222222;
+}
+h2, h3, h4, h5, h6 {
+	font-family: komet, sans-serif;
+	font-weight: 800;
+	font-style: normal;
+	cursor: default;
+}
+h2 {
+	font-size: 28px;
+    text-align: center;
+}
+h3 {
+	font-size: 25px;
+    margin: 0 0 1em 0;
+}
+li, p {
+    max-width: 65ch;
+}
+label, input, a {
+	cursor: pointer;
+}
+span {
+    cursor: default;
+}
+.hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* Header
+======================================================
+*/
+header {
+    background-color: #222222;
+}
+header .container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+	justify-content: space-between;
+    height: 140px;
+    background-color: #222222;
+    padding: 0 20px 0 0;
+    overflow: hidden;
+}
+header .container > a {
+    display: flex;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 22px;
+}
+h1 {
+    font-family: dolce, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 50px;
+    letter-spacing: normal;
+    word-spacing: -7px;
+    color: #f5f5f5;
+}
+h1 span {
+    color: #f9c136;
+}
+svg {
+    position: relative;
+    left: 8px;
+    height: 75px;
+}
+svg path {
+    fill: #f9c136;
+}
+
+/* Navigation
+======================================================
+*/
+header .container nav ul {
+    display: flex;
+}
+header .container nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+}
+li a:link {
+    color: #f5f5f5;
+}
+li a:visited {
+    color: #f5f5f5;
+}
+li a:hover {
+    color: #f9c136;
+}
+/* Navigation hidden for "fake it til you make it" hamburger menu */
+header .container nav {
+    display: none;
+}
+/* Non-functional hamburger menu icon */
+header .container a:nth-child(2) {
+    color: #f5f5f5;
+}
+header .container a:nth-child(2):hover {
+    color: #f9c136;
+}
+.fas.fa-hamburger {
+    font-size: 30px;
+}
+
+/* Main Content
+======================================================
+*/
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4em auto;
+}
+article > figure {
+    flex: 2;
+    max-width: 550px;
+    margin: 0 auto 35px auto;
+}
+article > figure img {
+	width: 100%;
+}
+article > figure figcaption {
+    padding: 10px 0 0 10px;
+}
+/* Recipe Summary - number of ingredients, time, servings */
+#recipe-summary {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    max-width: 490px;
+    margin-bottom: 30px;
+}
+#recipe-summary > ul:nth-child(4) {
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-top: 25px;
+}
+#recipe-summary > ul:nth-child(4) li {
+	flex: 1;
+    font-size: 14px;
+	padding: 0 10px;
+	text-align: center;
+}
+#recipe-summary > ul:nth-child(4) li:not(:last-child) {
+	border-right: 2px solid #222222;
+}
+#recipe-summary > ul:nth-child(4) li span {
+	color: #660099;
+	display: block;
+    font-size: 22px;
+}
+/* Star Rating */
+#rating-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+#rating {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.fas.fa-star::before,
+.far.fa-star::before {
+    font-size: 20px;
+	color:#f9c136;
+}
+#rating-container p {
+    font-size: 14px;
+}
+
+/* Recipe Options - email, print, etc. */
+#recipe-summary > ul:nth-child(3) {
+    display: flex;
+    align-items: center;
+}
+#recipe-summary > ul li a {
+    display: block;
+    padding: 5px;
+}
+#recipe-summary > ul li a:hover {
+    transform: scale(1.2);
+}
+#recipe-summary > ul:nth-child(3) li button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+#recipe-summary > ul:nth-child(3) li button:hover {
+    transform: scale(1.2);
+}
+.fab.fa-pinterest-p::before,
+.far.fa-envelope::before,
+.fas.fa-print::before {
+    font-size: 35px;
+	color: #222222;
+    margin-right: 7px;
+    margin-left: 8px;
+}
+
+/* Nutrition Facts Table */
+details {
+    padding: 10px;
+}
+details[open] {
+	background-color: #ddd;
+    max-width: 400px;
+    margin: 0 auto;
+}
+details p {
+    font-size: 14px;
+    width: 300px;
+    margin: 0 auto;
+}
+summary {
+    text-align: center;
+    font-size: 18px;
+	font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+}
+summary:hover {
+	cursor: pointer;
+}
+table {
+    font-size: 15px;
+    background-color: #ddd;
+    min-width: 300px;
+    margin: 1em auto;
+    padding: 0 10px;
+}
+th {
+    text-align: left;
+    padding: 2px;
+}
+tr:not(:nth-child(2)) {
+    display: flex;
+}
+#nutrition-facts details table thead > tr {
+    display: table-row;
+}
+th {
+    font-weight: bold;
+}
+th, td {
+    border-bottom: 2px solid #222222;
+}
+td {
+    text-align: right;
+    padding: 2px;
+}
+td:nth-child(2) {
+    text-align: left;
+}
+td:nth-child(odd) {
+    flex: 1;
+    font-weight: bold;
+}
+td span, th span {
+    font-weight: normal;
+}
+th span {
+    padding-left: 10px;
+}
+
+/* Recipe Ingredients */
+article > div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-top: 40px;
+}
+#ingredients, #directions  {
+    margin-bottom: 30px;
+    padding: 1em;
+}
+#ingredients button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 35px;
+    background-color: #660099;
+    color: #f5f5f5;
+    border: 0 solid #660099;
+    border-radius: 10px;
+    font-family: komet, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 3px black);
+}
+#ingredients button:hover {
+    transform: scale(1.05);
+}
+input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+input[type="checkbox"]:checked {
+    filter: drop-shadow(0px 0px 3px #222222);
+}
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Recipe Directions */
+#directions ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    line-height: 1.5;
+    padding: 0 14px;
+}
+#directions ol li {
+    position: relative;
+    z-index: 99;
+    margin-bottom: 20px;
+}
+#directions ol li span {
+    padding-left: 10px;
+}
+#directions ol li::marker {
+    color: #f9c136;
+    font-size: 20px;
+    font-weight: bold;
+}
+#directions ol li::before {
+    position: absolute;
+    left: -11px;
+    top: -3px;
+    z-index: -99;
+    content: "";
+    background-color: #222222;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+
+/* Aside - You might also like */
+aside {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 95%;
+    max-width: 1100px;
+    grid-column: 1 / -1;
+    margin: 0 auto;
+}
+aside h3 {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+aside figure {
+    position: relative;
+    margin: 0 auto;
+}
+figcaption.dimmed {
+    position: absolute;
+    bottom: 8px;
+    padding: 4px 0;
+    width: 250px;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+/* Footer
+======================================================
+*/
+footer {
+    background: url(../images/footer_background.jpg) no-repeat center / cover;
+    padding: 10px 0;
+}
+footer .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+	left: 0;
+	bottom: 0;
+    color: #f5f5f5;
+    height: 230px;
+    width: 100%;
+    background: transparent;
+}
+
+/* Social Media */
+footer .container section p {
+    font-weight: bold;
+    color: #f9c136;
+    cursor: default;
+}
+footer .container section ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 10px auto 0 auto;
+}
+footer .container section ul li {
+    margin: 0 10px;
+}
+footer .container section ul li a {
+    display: inline-block;
+    vertical-align: middle;
+    height: 35px;
+}
+.fab.fa-facebook-square::before,
+.fab.fa-twitter-square::before,
+.fab.fa-instagram-square::before {
+    font-size: 35px;
+    margin-right: 7px;
+    margin-left: 8px;
+}
+
+/* Footer Navigation & Cite */
+footer .container div {
+	text-align: center;
+}
+footer .container div cite {
+	display: block;
+}
+footer .container div nav {
+	margin-top: 10px;
+}
+footer .container div nav ul {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+footer .container div nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+}
+footer .container div nav ul li a:hover {
+    color: #f9c136;
+}
+cite {
+    font-size: 14px;
+}
+cite a:link {
+    color: #f9c136;
+}
+cite a:visited {
+    color: #f9c136;
+}
+cite a:hover {
+    color: #f5f5f5;
+}
+
+/* Copyright */
+footer .container small {
+	flex: 100%;
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Media Query #1 - Mobile
+======================================================
+*/
+@media screen and (min-width: 582px) {
+    
+    /* footer */
+    cite {
+        margin-top: 15px;
+    }
+}
+
+/* Media Query #2 - Tablet
+======================================================
+*/
+@media screen and (min-width: 800px) {
+
+    body {
+        font-size: 18px;
+    }
+
+    /* header & nav */
+    header .container {
+        padding: 1em 2em 1em 1em;
+    }
+    header .container nav {
+        display: block;
+    }
+
+    /* Non-functional hamburger menu icon */
+    header .container a:nth-child(2) {
+        display: none;
+    }
+
+    /* main content */
+    article {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+        align-items: stretch;
+        max-width: 1200px;
+        padding: 0 1em;
+    }
+    article h2 {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        grid-column: 1 / -1;
+        border-bottom: 8px solid #f9c136;
+        font-size: 28px;
+    }
+    article > figure {
+        margin: 0 auto;
+        grid-row: 2 / 4;
+        align-self: start;
+    }
+    #recipe-summary {
+        align-self: baseline;
+        margin: 0 auto;
+    }
+    details {
+        min-height: 616px;
+    }
+    #ingredients, #directions {
+        background-color: #ddd;
+        margin: 0;
+    }
+    #ingredients button {
+        font-size: 18px;
+    }
+    /* footer */
+    cite {
+        margin-top: 15px;
+    }
+}
+
+/* Media Query #3 - Desktop
+======================================================
+*/
+@media screen and (min-width: 1720px) {
+
+    #recipe-summary > ul:nth-child(4) li span {
+        font-size: 28px;
+    }
+
+    /* Social Media */
+    .fab.fa-facebook-square::before,
+    .fab.fa-twitter-square::before,
+    .fab.fa-instagram-square::before {
+        font-size: 45px;
+    }
+    footer .container section p {
+        font-size: 20px;
+    }
+
+    /* Footer Navigation & Cite */
+    footer .container div nav ul, cite {
+        font-size: 19px;
+    }
+
+    /* Copyright */
+    footer .container small {
+        font-size: 17px;
+    }
+
+    /* Nutrition Facts */
+    details {
+        min-height: 616px;
+    }
+    /* footer */
+    cite {
+        margin-top: 15px;
+    }
+}
